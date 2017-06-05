@@ -1,0 +1,1 @@
+module.exports = 'mongodb://42.159.144.80:12345/dashboardDB';

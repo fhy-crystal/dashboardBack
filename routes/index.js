@@ -37,7 +37,7 @@ var responseJSON = function (res, result) {
 
 
 // 查询dnakit
-router.get('/dashboard/queryKit', function(req, res) {
+router.get('/queryKit', function(req, res) {
 	// 调用mongo查询数据方法
 	MongoClient.connect(URL, function(err, db) {
 		console.log('查询连接成功');
@@ -54,6 +54,30 @@ router.get('/queryNet', function(req, res) {
 	MongoClient.connect(URL, function(err, db) {
 		console.log('查询连接成功');
 		queryData('netActive', {}, db, function(result) {
+			responseJSON(res, result);
+			db.close();
+		})
+	})
+})
+
+// 查询third
+router.get('/queryThird', function(req, res) {
+	// 调用mongo查询数据方法
+	MongoClient.connect(URL, function(err, db) {
+		console.log('查询连接成功');
+		queryData('thirdActive', {}, db, function(result) {
+			responseJSON(res, result);
+			db.close();
+		})
+	})
+})
+
+// 查询virtual
+router.get('/queryVirtual', function(req, res) {
+	// 调用mongo查询数据方法
+	MongoClient.connect(URL, function(err, db) {
+		console.log('查询连接成功');
+		queryData('virtualActive', {}, db, function(result) {
 			responseJSON(res, result);
 			db.close();
 		})

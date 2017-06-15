@@ -7,7 +7,7 @@ MongoClient.connect(URL, function(err, db) {
 		// 先删除表格,防止重复写入
 		db.collection('kitActive').drop();
 
-		lineReader.eachLine('kitData.csv', function(line, last) {
+		lineReader.eachLine('kitdata.csv', function(line, last) {
 			var attrName = ['id', 'todayActive', 'curMonActive', 'totalActive', 'yearTotalActive', 'monActive'];
 			var finalObj = {};
 			// 处理'id', 'todayActive', 'curMonActive', 'totalActive', 'yearTotalActive'
